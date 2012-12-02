@@ -6,7 +6,7 @@
 var dataminer = require('../lib/dataminer'),
     request = require('request');
 
-var downloader = dataminer.createQueue('download-urls');
+var downloader = dataminer.createQueue('download-urls', { progress: true });
 downloader.process(function (job, done) {
 
     var contentLength = 0;
