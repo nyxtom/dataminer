@@ -14,7 +14,8 @@
     "express": "*",
     "request": "*",
     "optimist": "*",
-    "validation": "*"
+    "validator": "*",
+    "node-uuid": "*"
   },
   "engines": {
     "node": ">=0"
