@@ -4,7 +4,12 @@
  */
 
 var dataminer = require('../lib/dataminer'),
-    request = require('request');
+    fs = require('fs'),
+    request = require('request'),
+    Job = require('../lib/job');
+
+var job = Job.createJob('download-urls', { 'url': 'http://example.com/', 'path': 'example.com.txt' }, {});
+job.queue();
 
 var downloader = dataminer.createQueue('download-urls', { progress: true });
 downloader.process(function (job, done) {
