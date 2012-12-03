@@ -9,11 +9,10 @@ var dataminer = require('../lib/dataminer'),
     Job = require('../lib/job');
 
 var job = Job.createJob('download-urls', {});
-for (var i = 0; i < 10; i++) {
-    job.queue({'url': 'http://example.com', 'path': 'example.com.txt'});
-}
+job.queue({'url': 'http://example.com', 'path': 'example.com.txt'});
 
 var downloader = dataminer.createQueue('download-urls', { progress: true });
+dataminer.register(downloader, "wdx2349a0xf333");
 downloader.process(function (job, data, done) {
 
     var contentLength = 0;

@@ -21,7 +21,7 @@ $ npm install dataminer
 ---------------------
 First to create any standard queue worker that processes items off of a redis queue, use ``dataminer.createQueue``.
 
-### dataminer.createQueue(queueName, n, options):
+### dataminer.createQueue(queueName, n, options)
 Create a new queue worker to process on `queueName`. `n` is the number of 
 calls that will be done at any given time for each job (`n` = 2 will
 process 2 jobs at a time for a single process). `n` defaults to `1`.
@@ -76,17 +76,30 @@ downloader.process(function (data, done) {
 });
 ```
 
+### dataminer.register(worker, id, options)
+Registers a worker to a specific id so that when the process dies the
+status of the worker will be in a stopped state along with any other
+remnant items such as the processed count per second history.
+
+```
+dataminer.register(worker, 'dkdksfa323id');
+```
+
+### dataminer.unregister(id, options)
+Unregisters a given worker id so that all previous remnant artifacts such
+as the worker process count per second history, the status..etc are
+immediately removed from redis.
+
+```
+dataminer.unregister('oldunusedworkerid');
+```
+
 ### TODO:
 ------------------
 * Add streaming to queue support ala dataminer.createStream
     * Add Twitter Sample Stream Example (use request.pipe)
 * Add flush routine support to existing queue workers
     * ```queueWorker.flush(flushIntervalMs, function () { })```
-* Add dataminer worker registration
-    * ```dataminer.register(worker, options)``` (for extended worker
-      support that includes registered id and will live in state on even 
-      after the process dies). This is especially useful for when workers
-      have died and it is important to know that from a dashboard.
 * Add logging support (injection for different types)
 
 ### LICENSE:
