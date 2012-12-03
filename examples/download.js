@@ -8,17 +8,20 @@ var dataminer = require('../lib/dataminer'),
     request = require('request'),
     Job = require('../lib/job');
 
-var job = Job.createJob('download-urls', { 'url': 'http://example.com/', 'path': 'example.com.txt' }, {});
-job.queue();
+var job = Job.createJob('download-urls', {});
+for (var i = 0; i < 10; i++) {
+    job.queue({'url': 'http://example.com', 'path': 'example.com.txt'});
+}
 
 var downloader = dataminer.createQueue('download-urls', { progress: true });
-downloader.process(function (job, done) {
+downloader.process(function (job, data, done) {
 
     var contentLength = 0;
-    var req = request(job.data.url);
-    req.pipe(fs.createWriteStream(job.data.path));
+    var req = request(data.url);
+    req.pipe(fs.createWriteStream(data.path));
     req.on('response', function (response) {
-        contentLength = response['content-length'];
+        if (response.headers['content-length'])
+            contentLength = response.headers['content-length'];
     });
     req.on('data', function (chunk) {
         job.progress(chunk.length, contentLength);
