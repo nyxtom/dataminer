@@ -44,14 +44,14 @@ process 2 jobs at a time for a single process). `n` defaults to `1`.
 var dataminer = require('dataminer'),
     request = require('request');
 
-var downloader = dataminer.createQueue('q-urls');
-downloader.process(function (job, done) {
+var downloader = dataminer.createQueue('q-urls', { progress: true });
+downloader.process(function (job, data, done) {
 
     var contentLength = 0;
-    var req = request(job.data.url);
-    req.pipe(fs.createWriteStream(job.data.path));
+    var req = request(data.url);
+    req.pipe(fs.createWriteStream(data.path));
     req.on('response', function (response) {
-        contentLength = response['content-length'];
+        contentLength = response.headers['content-length'];
     });
     req.on('data', function (chunk) {
         job.progress(chunk.length, contentLength);
@@ -63,6 +63,16 @@ downloader.process(function (job, done) {
         done();
     }):
 
+});
+```
+- ```dataminer.createQueue('q-urls')``` or with ```progress: false``` will 
+  result in a callback function that *does not* include the *job* but will
+  instead only include the *data* and *done* callback. This is useful for
+  higher-throughput processing that requires no progress tracking such as
+  parsing tweets.
+
+```
+downloader.process(function (data, done) {
 });
 ```
 
