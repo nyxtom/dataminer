@@ -69,15 +69,15 @@ downloader.process(function (job, done) {
 ### TODO:
 ------------------
 * Add streaming to queue support ala dataminer.createStream
-    * Add Twitter Stream Support
-    * Add Gnip Activity Stream Support
-    * Add Newsgator Feed Stream Support
+    * Add Twitter Sample Stream Example (use request.pipe)
 * Add flush routine support to existing queue workers
     * ```queueWorker.flush(flushIntervalMs, function () { })```
-* Add dataminer monitoring support ala dataminer.monitor
-    * Can report when a registered worker dies
 * Add dataminer worker registration
-    * ```dataminer.register(worker, options)```
+    * ```dataminer.register(worker, options)``` (for extended worker
+      support that includes registered id and will live in state on even 
+      after the process dies). This is especially useful for when workers
+      have died and it is important to know that from a dashboard.
+* Add logging support (injection for different types)
 
 ### LICENSE:
 --------------------
