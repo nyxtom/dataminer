@@ -109,6 +109,7 @@ dataminer.unregister('oldunusedworkerid');
         - i.e. Parsers vs Streams
     * Spawn up a new set of workers based on group name
     * Spawn up a worker group to be in failover vs load-balanced mode
+* Display workers in a simple dashboard
 
 ### LICENSE:
 --------------------
