@@ -118,7 +118,6 @@ other native options to the api. The endpoints are described below:
     * Add Twitter Sample Stream Example (use request.pipe)
 * Add flush routine support to existing queue workers
     * ```queueWorker.flush(flushIntervalMs, function () { })```
-* Add logging support (injection for different types)
 * Add cluster awareness support
     * Monitor each other's running services to either run workers 
       in a "single-failover" scenario or load-balanced.
@@ -128,6 +127,7 @@ other native options to the api. The endpoints are described below:
     * Spawn up a new set of workers based on group name
     * Spawn up a worker group to be in failover vs load-balanced mode
 * Use process.hrtime() in cases of timing intervals
+* Use [tracer](http://github.com/baryon/tracer) for customizable logging
 
 ### LICENSE:
 --------------------
