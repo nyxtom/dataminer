@@ -23,5 +23,5 @@
   "engines": {
     "node": ">=0"
   },
-  "main": "./lib/dataminer.js"
+  "main": "./index.js"
 }
