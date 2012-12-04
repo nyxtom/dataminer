@@ -1,5 +1,5 @@
-### Dataminer [![Build
-Status](https://secure.travis-ci.org/nyxtom/dataminer.png?branch=master)](https://travis-ci.org/nyxtom/dataminer)
+### Dataminer 
+[![Build Status](https://secure.travis-ci.org/nyxtom/dataminer.png?branch=master)](https://travis-ci.org/nyxtom/dataminer)
 Dataminer is a data mining, fault-tolerant distributed worker queue built
 for creating job workers simple and quickly. Common routines for processing queues, streaming data into other queues or distributing queues, flush routines into other data sources are all apart of dataminer's core tasks. Dataminer is backed by [redis](http://redis.io/) and [mongodb](http://mongodb.org/).
 
