@@ -54,12 +54,14 @@ downloader.process(function (job, data, done) {
         contentLength = response.headers['content-length'];
     });
     req.on('data', function (chunk) {
-        job.progress(chunk.length, contentLength);
+        job.progress(chunk.length, contentLength, false, 'active');
     });
     req.on('error', function (err) {
+        job.progress(0, contentLength, false, 'failed');
         done(err);
     });
     req.on('end', function () {
+        job.progress(0, contentLength, true, 'done');
         done();
     }):
 
