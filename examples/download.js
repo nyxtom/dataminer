@@ -26,9 +26,11 @@ downloader.process(function (job, data, done) {
         job.progress(chunk.length, contentLength);
     });
     req.on('error', function (err) {
+        job.progress(0, contentLength, false, "failed");
         done(err);
     });
     req.on('end', function () {
+        job.progress(0, contentLength, true, "complete");
         done();
     });
 
