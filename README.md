@@ -127,7 +127,7 @@ other native options to the api. The endpoints are described below:
         - i.e. Parsers vs Streams
     * Spawn up a new set of workers based on group name
     * Spawn up a worker group to be in failover vs load-balanced mode
-* Display workers in a simple dashboard
+* Use process.hrtime() in cases of timing intervals
 
 ### LICENSE:
 --------------------
