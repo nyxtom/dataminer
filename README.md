@@ -111,6 +111,8 @@ other native options to the api. The endpoints are described below:
 
 * ```/api/v1/workers```: Returns a list of active/inactive workers running
   across all instances and monitored services.
+* ```/api/v1/jobs```: Returns a list of actively running jobs across all
+  instances and monitored services.
 
 ### TODO:
 ------------------
