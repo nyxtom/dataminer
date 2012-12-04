@@ -94,6 +94,24 @@ immediately removed from redis.
 dataminer.unregister('oldunusedworkerid');
 ```
 
+### dataminer.app.listen(options, port, fn)
+Starts the http *express* web application to expose the json api. Use this
+to configure additional parameters for auth or additional routes and
+configurations. The default api is located at */api/v1/workers* e.g.
+
+```
+dataminer.app.listen()
+```
+
+### JSON API
+-----------------
+The JSON API included with the project allows you to efficiently monitor
+your workers and optionally load items into the queue, restart workers and
+other native options to the api. The endpoints are described below:
+
+* ```/api/v1/workers```: Returns a list of active/inactive workers running
+  across all instances and monitored services.
+
 ### TODO:
 ------------------
 * Add streaming to queue support ala dataminer.createStream
