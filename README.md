@@ -127,7 +127,8 @@ other native options to the api. The endpoints are described below:
     * Spawn up a new set of workers based on group name
     * Spawn up a worker group to be in failover vs load-balanced mode
 * Use process.hrtime() in cases of timing intervals
-* Use [tracer](http://github.com/baryon/tracer) for customizable logging
+* Add [tracer](http://github.com/baryon/tracer) logging support
+* Add [winston](https://github.com/flatiron/winston) logging support
 
 ### LICENSE:
 --------------------
