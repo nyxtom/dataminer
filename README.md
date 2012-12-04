@@ -101,6 +101,14 @@ dataminer.unregister('oldunusedworkerid');
 * Add flush routine support to existing queue workers
     * ```queueWorker.flush(flushIntervalMs, function () { })```
 * Add logging support (injection for different types)
+* Add cluster awareness support
+    * Monitor each other's running services to either run workers 
+      in a "single-failover" scenario or load-balanced.
+    * Automatically start up failover workers
+    * Make a group of running workers configurable (nameable)
+        - i.e. Parsers vs Streams
+    * Spawn up a new set of workers based on group name
+    * Spawn up a worker group to be in failover vs load-balanced mode
 
 ### LICENSE:
 --------------------
