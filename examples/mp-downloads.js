@@ -1,8 +1,8 @@
 
-var downloader = require("./lib/miners/downloader");
+var dataminer = require("./../lib/dataminer");
 var time = process.hrtime();
 
-downloader.download("test.pdf", "http://kindle.s3.amazonaws.com/Kindle_Touch_Users_Guide.pdf", 10);
+dataminer.download("test.pdf", "http://kindle.s3.amazonaws.com/Kindle_Touch_Users_Guide.pdf", 10);
 
 process.on('exit', function () {
     var diff = process.hrtime(time);

@@ -105,6 +105,18 @@ configurations. The default api is located at */api/v1/workers* e.g.
 dataminer.app.listen()
 ```
 
+### dataminer.download(path, url, n, job)
+Runs an async download requests from `url` and saves to the `path`. `n`
+represents the number of async requests to run if the url *supports the
+accepts-range* header. The *accepts-range* header allows the requested
+file to be broken up into byte chunks and downloaded appropriately. `job`
+can be used in addition if this method is called from within a worker so
+that progress can be automatically tracked.
+
+```
+dataminer.download('test.pdf', 'http://kindle.s3.amazonaws.com/Kindle_Touch_Users_Guide.pdf', 2)
+```
+
 ### JSON API
 -----------------
 The JSON API included with the project allows you to efficiently monitor
