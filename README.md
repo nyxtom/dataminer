@@ -105,13 +105,14 @@ configurations. The default api is located at */api/v1/workers* e.g.
 dataminer.app.listen()
 ```
 
-### dataminer.download(path, url, n, job)
+### dataminer.download(path, url, n, job, done)
 Runs an async download requests from `url` and saves to the `path`. `n`
 represents the number of async requests to run if the url *supports the
 accepts-range* header. The *accepts-range* header allows the requested
 file to be broken up into byte chunks and downloaded appropriately. `job`
 can be used in addition if this method is called from within a worker so
-that progress can be automatically tracked.
+that progress can be automatically tracked. Finally, `done` is the
+callback handler for when the download is completed.
 
 ```
 dataminer.download('test.pdf', 'http://kindle.s3.amazonaws.com/Kindle_Touch_Users_Guide.pdf', 2)
