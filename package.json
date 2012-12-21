@@ -2,7 +2,7 @@
   "name": "dataminer",
   "description": "Performing common data mining tasks such as parallel download jobs, importing data, downloading files from s3, creating new jobs on the fly",
   "keywords": ["gnip","historical data","job tracking","kue","pubsub"],
-  "version": "0.1.4",
+  "version": "0.1.5",
   "licenses": [{
     "type": "MIT"
   }],
